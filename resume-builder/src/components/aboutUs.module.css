@@ -1,0 +1,32 @@
+.headingContainer {
+    height: 10vh;
+    color: black;
+    text-align: center;
+    padding: 3vh;
+}
+
+.headingText {
+    font-size: 40px;
+    font-family: sans-serif;
+}
+
+.mainContainer {
+    background-color: white;
+    height: 90vh;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cardContainer {
+    height: 60vh;
+    width: 80vh;
+    background-color: black; /* Main background color of the card */
+}
+
+.animationContainer {
+    height: 60vh;
+    width: 60vh;
+    background-color: black;
+}
