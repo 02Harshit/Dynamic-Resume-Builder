@@ -1,0 +1,55 @@
+/* .developerPageContainer {
+    background-color: #1C1C1C;
+    height:100vh;
+
+}
+
+.headingContainer {
+    color:white;
+    text-align: center;
+    padding:2vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: xx-large;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5vh;
+    padding:2vh;
+    flex-wrap: wrap;
+} */
+
+.developerPageContainer {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    height: 100vh;
+    padding: 2vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.headingContainer {
+    color: white;
+    text-align: center;
+    padding: 2vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: xx-large;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5vh;
+    padding: 2vh;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .cardContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
