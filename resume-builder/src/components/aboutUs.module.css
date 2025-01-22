@@ -1,32 +1,70 @@
 .headingContainer {
     height: 10vh;
-    color: black;
+    background-color: #1c1c1c; /* To match the dark background */
+    color: white; /* Align with the landing page theme */
     text-align: center;
     padding: 3vh;
+    
 }
 
 .headingText {
     font-size: 40px;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase; /* Adds a modern, bold look */
+    letter-spacing: 2px;
+    text-shadow:1px 1px 10px  orange;
 }
 
 .mainContainer {
-    background-color: white;
+    background-color: #1c1c1c; /* Dark background to match the landing page */
     height: 90vh;
     display: flex;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
     justify-content: space-around;
+    padding: 0 5%;
 }
 
 .cardContainer {
     height: 60vh;
     width: 80vh;
-    background-color: black; /* Main background color of the card */
+    background-color: #222; /* Dark theme for the card */
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.7);
+    border-radius: 25px;
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cardContainer:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 25px 10px rgba(255, 165, 0, 0.5); /* Adds a glowing orange hover effect */
+}
+
+.cardHeading {
+    color: white;
+    font-size: 48px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
+}
+
+.cardText {
+    margin-top: 2vh;
+    font-size: 18px;
+    color: #ccc; /* Subtle gray for better readability */
+    line-height: 1.6;
 }
 
 .animationContainer {
     height: 60vh;
     width: 60vh;
-    background-color: black;
+    background-color: transparent; /* Matches the dark theme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutUsSection {
+    background-color: #121212; /* Dark theme for the entire section */
+    color: white;
+    padding: 0;
 }
