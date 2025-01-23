@@ -11,6 +11,7 @@ function App() {
     <LandingPage />
     <AboutUs />
     <DeveloperPage />
+    <Login />
     </>
   );
 }
