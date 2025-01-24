@@ -1,22 +1,16 @@
 import React from 'react';
 import styles from './landing_page_component.module.css';
 import Hero3D from './Hero3D'; // Import the Hero3D component
+import Navbar from './Navbar';
 
 const LandingPage = () => {
   return (
     <div className={styles.container}>
       {/* Navigation Bar */}
-      <nav className={styles.navbar}>
-        <div className={styles.logo}>Resume Builder</div>
-        <ul className={styles.navLinks}>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#developers">Developers</a></li>
-        </ul>
-      </nav>
+      <Navbar />      
 
       {/* Hero Section */}
-      <section className={styles.heroSection}>
+      <section className={styles.heroSection} id="home">
         <div className={styles.heroContent}>
           <h1 className={styles.headline}>Build Your Professional Resume Effortlessly</h1>
           <p className={styles.subheadline}>Create stunning resumes in just a few clicks and land your dream job.</p>

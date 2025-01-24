@@ -4,6 +4,7 @@ import About3D from './About3D.js';
 
 const AboutUs = () => {
     return (
+        <section id="about">
         <div className={styles.aboutUsSection}>
             <div className={styles.headingContainer}>
                 <span className={styles.headingText}> About Us </span>
@@ -21,6 +22,7 @@ const AboutUs = () => {
                 </div>
             </div>
         </div>
+        </section>
     );
 }
 

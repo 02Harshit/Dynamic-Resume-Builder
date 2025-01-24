@@ -4,6 +4,7 @@ import styles from './developerPage.module.css';
 
 const DeveloperPage = () => {
     return (
+        <section id="developer">
         <div className={styles.developerPageContainer}>
             <div className={styles.headingContainer}>
                 Meet Our Team!
@@ -29,6 +30,7 @@ const DeveloperPage = () => {
                 />
             </div>
         </div>
+        </section>
     );
 }
 
