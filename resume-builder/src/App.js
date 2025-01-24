@@ -8,10 +8,10 @@ import LoginPage from "./components/LoginPage.js";
 function App() {
   return (
     <>
-      {/* <LandingPage />
+      <LandingPage />
       <AboutUs />
-      <DeveloperPage /> */}
-      <LoginPage/>
+      <DeveloperPage />
+      {/* <LoginPage/> */}
     </>
   );
 }

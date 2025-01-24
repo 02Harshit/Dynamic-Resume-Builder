@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './landing_page_component.module.css';
 import Hero3D from './Hero3D'; // Import the Hero3D component
 import Navbar from './Navbar';
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -16,7 +17,7 @@ const LandingPage = () => {
           <p className={styles.subheadline}>Create stunning resumes in just a few clicks and land your dream job.</p>
           <div className={styles.ctaButtons}>
             <button className={styles.getStarted}>Get Started</button>
-            <button className={styles.login}>Login</button>
+            <NavLink to="/login" ><button className={styles.login}>Login</button></NavLink>
           </div>
         </div>
         {/* 3D Animation as Foreground */}
