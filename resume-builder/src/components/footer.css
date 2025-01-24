@@ -1,0 +1,10 @@
+/* footer.css */
+.footer {
+  background: rgba(27, 28, 33, 1);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
