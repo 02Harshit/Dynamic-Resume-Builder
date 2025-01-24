@@ -1,9 +1,8 @@
-
 .developerPageContainer {
-    background: linear-gradient(135deg, #6f1e72, #822a98);
+    background: black;
     color: white;
     height: 100vh;
-    padding: 2vh;
+    padding:2vh;
     background-size: cover;
     background-repeat: no-repeat;
 }
