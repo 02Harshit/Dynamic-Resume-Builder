@@ -28,13 +28,7 @@ const Login = () => {
       {/* Overlay Section */}
       <div className={styles["overlay-container"]}>
         <div className={styles.overlay}>
-          <div className={styles["overlay-panel"]}>
-            <h1>Hello, Friend!</h1>
-            <p>Enter your personal details and start your journey with us</p>
-            <button className={styles.ghost} onClick={togglePanel}>
-              Sign Up
-            </button>
-          </div>
+              <h1>Hello</h1>
         </div>
       </div>
     </div>

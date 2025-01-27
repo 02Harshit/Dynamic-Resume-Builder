@@ -9,7 +9,8 @@ import {
 import AboutUs from './components/aboutUs';
 import DeveloperPage from './components/developerPage';
 import LoginPage from './components/LoginPage';
-
+import AuthForm from './components/Authorization_trials/AuthForm';
+import AuthPage from './components/Authorization_trials/AuthPage';
 
 
 
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginPage />,
+    element: <AuthPage />
   }
 ]);
 
