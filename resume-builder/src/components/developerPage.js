@@ -7,7 +7,7 @@ const DeveloperPage = () => {
         <section id="developer">
         <div className={styles.developerPageContainer}>
             <div className={styles.headingContainer}>
-                Meet Our Team!
+                <span className={styles.headingText}>Meet Our Team!</span>
             </div>
             <div className={styles.cardContainer}>
                 <DeveloperCard 

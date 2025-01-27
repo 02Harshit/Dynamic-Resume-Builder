@@ -1,6 +1,6 @@
 .headingContainer {
     height: 10vh;
-    background-color: #1c1c1c; /* To match the dark background */
+    background-color:rgba(27,28,33,255); /* To match the dark background */
     color: white; /* Align with the landing page theme */
     text-align: center;
     padding: 3vh;
@@ -16,7 +16,7 @@
 }
 
 .mainContainer {
-    background-color: #1c1c1c; /* Dark background to match the landing page */
+    background-color:rgba(27,28,33,255); /* Dark background to match the landing page */
     height: 90vh;
     display: flex;
     gap: 20px;

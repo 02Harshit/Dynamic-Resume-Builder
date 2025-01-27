@@ -8,7 +8,7 @@ const LandingPage = () => {
   return (
     <div className={styles.container}>
       {/* Navigation Bar */}
-      <Navbar />      
+      {/* <Navbar />       */}
 
       {/* Hero Section */}
       <section className={styles.heroSection} id="home">

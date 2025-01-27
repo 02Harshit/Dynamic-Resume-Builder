@@ -18,6 +18,7 @@
     font-size: 2rem;
     font-weight: bold;
     margin-top: -.5vh;
+    cursor: pointer;
 }
 
 .navLinks {
@@ -38,5 +39,6 @@
   
 .navLinks a:hover {
     color: #ff7b00;
+    cursor:pointer;
 }
 

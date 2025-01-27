@@ -7,6 +7,15 @@
     background-repeat: no-repeat;
 }
 
+.headingText {
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase; /* Adds a modern, bold look */
+    letter-spacing: 2px;
+    text-shadow:1px 1px 10px  orange;
+}
+
+
 .headingContainer {
     color: white;
     text-align: center;
@@ -18,7 +27,7 @@
 .cardContainer {
     display: flex;
     justify-content: space-around;
-    margin-top: 5vh;
+    margin-top: 10vh;
     padding: 2vh;
     flex-wrap: wrap;
     gap: 20px;
