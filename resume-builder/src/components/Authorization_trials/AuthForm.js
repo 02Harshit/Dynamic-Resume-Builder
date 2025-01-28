@@ -26,8 +26,8 @@ const AuthForm = () => {
             <a href="#" className={styles["social"]}>in</a>
           </div> */}
           {/* <span>or use your account</span> */}
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input type="email" placeholder="Email" className={styles.inputStyling} />
+          <input type="password" placeholder="Password" className={styles.inputStyling} />
           {/* <a href="#">Forgot your password?</a> */}
           <div style={{textAlign:"center",marginTop:"3vh"}}>
           <button type="submit">Sign In</button>
@@ -41,10 +41,11 @@ const AuthForm = () => {
           <div className={styles.headingContainer}>
             <h1>Sign Up</h1>
           </div>
-          <span>Enter your personal details and start your journey with us</span>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <div className={styles.inputContainer}>
+          <input type="text" placeholder="Name"  className={styles.inputStyling}/>
+          <input type="email" placeholder="Email" className={styles.inputStyling}/>
+          <input type="password" placeholder="Password" className={styles.inputStyling}/>
+          </div>
           <div style={{textAlign:"center",marginTop:"5vh"}}>
           <button type="submit" className={styles.authButton}>Sign Up</button>
           </div>
@@ -62,7 +63,7 @@ const AuthForm = () => {
                 : "Enter your personal details and start your journey with us"}
             </p>
             <button className={`$styles["ghost"] $styles["authButton"]`} onClick={toggleForm} >
-              {isSignUp ? "Sign In" : "Sign Up"}
+              {!isSignUp ? "Sign In" : "Sign Up"}
             </button>
           </div>
         </div>
