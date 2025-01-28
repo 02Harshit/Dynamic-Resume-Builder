@@ -1,4 +1,15 @@
-.formContainer {
-    margin-top: 20vh;
-
+.mainContainer {
+    height:100vh;
+    background-image: url("../../assets/dr3.jpg");  
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.formContainer {
+    width:125vh;
+    height:71vh;
+    
+}
+

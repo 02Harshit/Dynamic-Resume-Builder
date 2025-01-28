@@ -6,7 +6,9 @@ const AuthPage = () => {
     return (
         <div>
             <Navbar />
-            <div className={styles.formContainer}><AuthForm /></div>
+            <div className={styles.mainContainer}>
+                <div className={styles.formContainer}><AuthForm /></div>
+            </div>
         </div>
     )
 }
