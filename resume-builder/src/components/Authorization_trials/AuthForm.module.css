@@ -89,7 +89,7 @@
     height:6vh;
   }
   
-  button:hover {
+  .auth-container > button:hover {
     background: #ff416c;
     cursor: pointer;
   }

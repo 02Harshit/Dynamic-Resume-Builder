@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./AfterNav.module.css";
+import { CgProfile } from "react-icons/cg";
 
 const AfterNav = () => {
   return (
@@ -9,15 +10,15 @@ const AfterNav = () => {
 
       {/* RHS - Navbar Links */}
       <nav>
-        <ul className={styles.navLinks}>
+        <ul className={styles.navLinks} type="none">
           <li>
-            <button className={styles.navButton}>Home</button>
+            <button className={`${styles.navButton} ${styles.homeBtn}`}>Home</button>
           </li>
           <li>
-            <button className={styles.navButton}>My Documents</button>
+            <button className={`${styles.navButton} ${styles.myDocumentBtn}`}>My Documents</button>
           </li>
           <li>
-            <button className={styles.navButton}>My Profile</button>
+            <CgProfile size="2.2rem" className={styles.profileIcon}/>
           </li>
         </ul>
       </nav>
