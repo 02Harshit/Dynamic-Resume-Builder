@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background-color: #1f2937; /* Tailwind's gray-800 */
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .brandName {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: bold;
+  }
+  
+  .navLinks {
+    display: flex;
+    gap: 1.5rem; /* space-x-6 */
+  }
+  
+  .navButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .navButton:hover {
+    color: #9ca3af; /* Tailwind's gray-400 */
+  }

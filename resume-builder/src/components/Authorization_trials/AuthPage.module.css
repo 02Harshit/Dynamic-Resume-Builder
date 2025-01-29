@@ -1,15 +1,18 @@
-.mainContainer {
+.mainContainer{
     height:100vh;
-    background-image: url("../../assets/dr3.jpg");  
+    background-image: url("../../assets/dr3.jpg");
+    z-index:-1;  
     background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+
 .formContainer {
     width:125vh;
     height:71vh;
-    
+    z-index: 1;
 }
 

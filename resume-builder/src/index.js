@@ -8,9 +8,8 @@ import {
 } from "react-router-dom";
 import AboutUs from './components/aboutUs';
 import DeveloperPage from './components/developerPage';
-import LoginPage from './components/LoginPage';
-import AuthForm from './components/Authorization_trials/AuthForm';
 import AuthPage from './components/Authorization_trials/AuthPage';
+import Dashboard from './components/Dashboard/DashboardPage';
 
 
 
@@ -28,8 +27,12 @@ const router = createBrowserRouter([
     element: <DeveloperPage />,
   },
   {
-    path: "/login",
+    path: "/authorization",
     element: <AuthPage />
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />
   }
 ]);
 
