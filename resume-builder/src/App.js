@@ -7,6 +7,7 @@ import Footer from "./components/footer.js";
 import Navbar from "./components/Navbar.js";
 import {useRef} from 'react';
 import GoToTop from "./components/goToTop.js";
+import Template1 from "./components/Templates/template1.js";
 
 function App() {
   const aboutRef = useRef(null);
@@ -32,6 +33,7 @@ function App() {
       <div ref={developerRef}><DeveloperPage /></div>
       <Footer />
       <GoToTop />
+      {/* <Template1 /> */}
       {/* <LoginPage/> */}
     </>
   );
