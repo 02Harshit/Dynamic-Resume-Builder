@@ -1,0 +1,49 @@
+.mainPage {
+    background-color:white;
+    height:100vh;
+}
+
+.contentContainer {
+    display: flex;
+    height:90vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.textContainer {
+    width:79vh;
+    height:45vh;
+    color:black;
+}
+
+.textContainer > h1 {
+    font-size: 3.5rem;
+}
+.textContainer > p {
+    margin-top: 2vh;
+    font-size: 2rem;
+}
+
+.imageContainer {
+   height:70vh;
+   box-shadow:8px 10px 6px 10px rgba(0, 0, 0, 0.445);
+
+}
+
+.displayImage {
+    height:70vh;
+
+} 
+
+.createResumeButton {
+    background-color: #18122B;
+    margin-top: 5vh;
+    border-radius: 20px;
+    height:8vh;
+    width:30vh;
+    color:white;
+    font-size: 1.1rem;
+    
+}
