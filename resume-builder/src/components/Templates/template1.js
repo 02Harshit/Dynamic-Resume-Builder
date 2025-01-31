@@ -1,7 +1,11 @@
 import styles from "./template1.module.css";
 import { FaPhone } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
 
-const PhoneIcon = () => <FaPhone style={{marginLeft:"10px",color:"orange",fontSize:"18px"}} className="text-blue-500 " />;
+const PhoneIcon = () => <FaPhone style={{marginLeft:"10px",color:"orange",fontSize:"15px"}} className="text-blue-500 " />;
+const EMailIcon = () => <FaEnvelope style={{marginLeft:"10px",color:"orange",fontSize:"15px"}} className="text-blue-500 " />;
+
+
 
 
 
@@ -18,6 +22,8 @@ const Template1 = () => {
             <div className={styles.bodyContainer}>
                 <div className={styles.leftContainer}>
                     <span >9685438381</span><PhoneIcon />
+                    <span> Youremail@gmail </span><EMailIcon/>
+                    <span >Yourname</span>
                 </div>
                 <div className={styles.rightContainer}></div>
             </div>
