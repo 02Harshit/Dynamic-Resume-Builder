@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar.js";
 import {useRef} from 'react';
 import GoToTop from "./components/goToTop.js";
 import Template1 from "./components/Templates/template1.js";
+import ResumePage from "./components/ResumePage.js";
 
 function App() {
   const aboutRef = useRef(null);
@@ -33,8 +34,9 @@ function App() {
       <div ref={developerRef}><DeveloperPage /></div>
       <Footer />
       <GoToTop /> */}
-       <Template1 />
-      {/* <LoginPage/>  */}
+      {/* <Template1 /> */}
+      <ResumePage />
+      {/* <LoginPage/> */}
     </>
   );
 }

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import AboutUs from './components/aboutUs';
 import DeveloperPage from './components/developerPage';
-import AuthPage from './components/Authorization_trials/AuthPage';
+import AuthPage from './components/Authorization/AuthPage';
 import Dashboard from './components/Dashboard/DashboardPage';
 
 
