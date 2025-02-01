@@ -78,3 +78,70 @@
     margin-top: 10px;
     line-height: 23px;
 }
+
+.experienceSection {
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.expPosition {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2C3E50;
+}
+
+.expCompany {
+    font-size: 15px;
+    font-style: italic;
+    color: #555;
+}
+
+.expDate {
+    font-size: 14px;
+    color: #777;
+}
+
+.expList {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.expList li {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.projectSection {
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.projectTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2C3E50;
+}
+
+.projectDescription {
+    margin-top:4px;
+    font-size: 14px;
+    color: #555;
+}
+
+.projectTechnologies {
+    margin-top:4px;
+    font-size: 14px;
+    color: #777;
+}
+
+.projectContributions {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.projectContributions li {
+    font-size: 14px;
+    line-height: 1.5;
+}
