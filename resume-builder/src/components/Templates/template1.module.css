@@ -62,4 +62,19 @@
     width:520px;
     min-height: 973px;
     background-color: white;
+    padding-top:40px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.rightContainer > .heading {
+    font-size: 20px;
+    color:#455a6e;
+    margin-top: 20px;
+
+}
+
+.rightContainer > .body {
+    margin-top: 10px;
+    line-height: 23px;
 }

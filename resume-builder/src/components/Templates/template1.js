@@ -5,8 +5,6 @@ import { FaEnvelope } from "react-icons/fa";
 const PhoneIcon = () => <FaPhone style={{marginLeft:"10px",color:"orange",fontSize:"15px"}} className="text-blue-500 " />;
 const EMailIcon = () => <FaEnvelope style={{marginLeft:"10px",color:"orange",fontSize:"15px"}} className="text-blue-500 " />;
 
-
-
 const Template1 = ({ userData }) => {
     return (
         <div className={styles.mainContainer}>
@@ -21,7 +19,12 @@ const Template1 = ({ userData }) => {
                     <div className={styles.leftContainer}>
                         <span>{userData.phone}</span><PhoneIcon />
                     </div>
-                    <div className={styles.rightContainer}></div>
+                    <div className={styles.rightContainer}>
+                        <h1 className={styles.heading}>PROFESSIONAL PROFILE</h1>
+                        <p className={styles.body}>{userData.professionalProfile}</p>
+                        <h1 className={styles.heading}>PROFESSIONAL EXPERIENCE</h1>
+                        <p className={styles.body}>{userData.professionalExperience}</p>
+                    </div>
                 </div>
             </div>
         </div>
