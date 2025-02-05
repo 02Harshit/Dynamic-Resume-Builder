@@ -1,9 +1,12 @@
 import styles from "./template1.module.css";
-import { FaPhone, FaEnvelope, FaExternalLinkAlt } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaExternalLinkAlt, FaLinkedin, FaHome } from "react-icons/fa";
 
 const PhoneIcon = () => <FaPhone style={{ marginLeft: "10px", color: "orange", fontSize: "15px" }} />;
 const EMailIcon = () => <FaEnvelope style={{ marginLeft: "10px", color: "orange", fontSize: "15px" }} />;
 const LinkIcon = () => <FaExternalLinkAlt style={{ marginLeft: "5px", fontSize: "12px", color: "blue" }} />;
+const Linkedin = () => <FaLinkedin style={{ marginLeft: "10px", color: "orange", fontSize: "15px" }} />;
+const Home = () => <FaHome style={{ marginLeft: "10px", color: "orange", fontSize: "15px" }} />;
+
 
 const Template1 = ({ userData }) => {
     return (
@@ -21,7 +24,28 @@ const Template1 = ({ userData }) => {
                 <div className={styles.bodyContainer}>
                     {/* Left Container */}
                     <div className={styles.leftContainer}>
-                        <span>{userData.phone}</span><PhoneIcon />
+                        <div className={styles.personalDetails} >
+                            <p>{userData.phone}<PhoneIcon /></p>
+                            <p>{userData.email}<EMailIcon /></p>
+                            <p>{userData.linkedin}<Linkedin /></p>
+                            <p>{userData.address}<Home/></p>
+                        </div>
+
+                        <div className={styles.educationContainer} >
+                            <h1 className={styles.heading}>EDUCATION</h1>
+                            {userData.education.length > 0 ? (
+                                userData.education.map((exp, index) => (
+                                    <div key={index} className={styles.educationSection}>
+                                        <h2 className={styles.qualification} style={{fontSize:'16px', color:'#455a6e'}}>{exp.qualification}</h2>
+                                        <p className={styles.course} style={{fontSize:'15px'}}>{exp.course} </p>
+                                        <p className={styles.institute} style={{fontSize:'15px'}}>{exp.institute}</p>
+                                        <p className={styles.year} style={{fontSize:'15px'}}>{exp.year}</p>
+                                    </div>
+                            ))
+                        ) : (
+                            <p>No education details added.</p>
+                        )}
+                        </div>
                     </div>
 
                     {/* Right Container */}

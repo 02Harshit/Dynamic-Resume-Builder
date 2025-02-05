@@ -5,7 +5,26 @@ const ResumePage = () => {
     const [userData, setUserData] = useState({
         name: "ANJALI PAWAR",
         position: "SOFTWARE TRAINEE",
-        phone: "9685438381",
+        phone: "9999999999",
+        email: "example@gmail.com",
+        linkedin: "harshit0212",
+        address: "Indore, M.P",
+        education: [
+            {
+                qualification: "Engineering",
+                course: "Btech",
+                institute: "Medicaps University",
+                year: "Jan 2022 - Present",
+                marks: "9.82", //optional
+            },
+            {
+                qualification: "12th",
+                course: "PCM",
+                institute: "Sri Sathya Sai Vidya Vihar",
+                year: "2020-2022",
+                marks: "95.4%", //optional
+            },
+        ],
         professionalProfile: "hello dosto me hu ek saada sa engineer meko please job dedo me bohot mehnati hu isiliye mujhe job chahiye toh please dedo yr me jaan laga dunga, bologe toh me haath per bhi daba dunga lekin please job pe lelo yr aisa mt kro lelo me ye bakwas isiliye likh rha hu kyuki lorem ipsum ho nhi rha toh aise hi likhna padh rha h pr ab kya hi kr skte h i think ho gye kaafi words, chalo ab baadme milte h!",
         professionalExperience: [
             {
