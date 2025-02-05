@@ -1,0 +1,79 @@
+.mainContainer {
+  min-height: 1123px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume_container {
+  position: absolute;
+  width: 800px; /* A4 width */
+  min-height: 1123px; /* A4 height */
+  background: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  text-align: center;
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.designation {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.contactInfo {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.section {
+  margin-top: 15px;
+}
+
+.horizontalLine {
+  margin-top: 20px;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+.educationEntry {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.educationDetails {
+  text-align: right;
+}
+
+.skillCategory {
+  margin-top: 10px;
+}
+
+.skillCategory strong {
+  font-size: 16px;
+}
+
+.skillCategory ul {
+  padding-left: 20px;
+}
+
+.section h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
