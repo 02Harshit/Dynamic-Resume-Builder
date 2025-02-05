@@ -5,28 +5,30 @@ import AboutUs from "./components/aboutUs.js";
 import DeveloperPage from "./components/developerPage.js";
 import Footer from "./components/footer.js";
 import Navbar from "./components/Navbar.js";
-import {useRef} from 'react';
+import { useRef } from "react";
 import GoToTop from "./components/goToTop.js";
 import Template1 from "./components/Templates/template1.js";
 import ResumePage from "./components/ResumePage.js";
+
+import Template2 from "./components/Templates/template2.js";
+import Template2Render from "./components/Templates/template2_render.js";
 
 function App() {
   const aboutRef = useRef(null);
   const developerRef = useRef(null);
 
   const scrollToAbout = () => {
-    aboutRef.current?.scrollIntoView({behavior: 'smooth'});
-  }
+    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const scrollToDeveloper = () => {
-    developerRef.current?.scrollIntoView({behavior: "smooth"});
-  }
+    developerRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const scrollToTop = () => {
-    window.scrollTo({top:0, behavior: 'smooth' });
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
-
     <>
       {/* <Navbar scrollToTop = {scrollToTop} scrollToAbout={scrollToAbout} scrollToDeveloper = {scrollToDeveloper} />
       <LandingPage />
@@ -35,7 +37,7 @@ function App() {
       <Footer />
       <GoToTop /> */}
       {/* <Template1 /> */}
-      <ResumePage />
+      <Template2Render />
       {/* <LoginPage/> */}
     </>
   );
