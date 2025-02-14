@@ -37,10 +37,10 @@ function App() {
       <Footer />
       <GoToTop /> */}
       {/* <Template1 /> */}
-      <Template2Render />
+      {/* <Template2Render /> */}
+      <ResumePage/>
       {/* <LoginPage/> */}
     </>
   );
 }
-
 export default App;

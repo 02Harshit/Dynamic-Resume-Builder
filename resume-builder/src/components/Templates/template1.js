@@ -46,6 +46,18 @@ const Template1 = ({ userData }) => {
                             <p>No education details added.</p>
                         )}
                         </div>
+                        <div className={styles.skillsConatainer}>
+                            <h1 className={styles.heading}>Skills</h1>
+                            {userData.skills && userData.skills.length > 0 ? (
+                            <ul className={styles.skillsList}>
+                           {userData.skills.map((skill, index) => (
+                            <li key={index} className={styles.skillItem}>{skill}</li>
+                            ))}
+                          </ul>
+                          ) : (
+                             <p>No skills added.</p>
+                       )}
+                        </div>
                     </div>
 
                     {/* Right Container */}

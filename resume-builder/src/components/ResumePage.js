@@ -25,6 +25,18 @@ const ResumePage = () => {
                 marks: "95.4%", //optional
             },
         ],
+        skills: [
+            "React.js",
+            "JavaScript",
+            "Node.js",
+            "MongoDB",
+            "Express.js",
+            "Tailwind CSS",
+            "Firebase",
+            "REST APIs",
+            "Git & GitHub",
+            "Problem Solving"
+        ],
         professionalProfile: "hello dosto me hu ek saada sa engineer meko please job dedo me bohot mehnati hu isiliye mujhe job chahiye toh please dedo yr me jaan laga dunga, bologe toh me haath per bhi daba dunga lekin please job pe lelo yr aisa mt kro lelo me ye bakwas isiliye likh rha hu kyuki lorem ipsum ho nhi rha toh aise hi likhna padh rha h pr ab kya hi kr skte h i think ho gye kaafi words, chalo ab baadme milte h!",
         professionalExperience: [
             {
