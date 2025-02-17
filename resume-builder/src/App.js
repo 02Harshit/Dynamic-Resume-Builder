@@ -30,15 +30,15 @@ function App() {
   };
   return (
     <>
-      {/* <Navbar scrollToTop = {scrollToTop} scrollToAbout={scrollToAbout} scrollToDeveloper = {scrollToDeveloper} />
+      <Navbar scrollToTop = {scrollToTop} scrollToAbout={scrollToAbout} scrollToDeveloper = {scrollToDeveloper} />
       <LandingPage />
       <div ref={aboutRef}><AboutUs /></div>
       <div ref={developerRef}><DeveloperPage /></div>
       <Footer />
-      <GoToTop /> */}
+      <GoToTop />
       {/* <Template1 /> */}
       {/* <Template2Render /> */}
-      <ResumePage/>
+      {/* <ResumePage/> */}
       {/* <LoginPage/> */}
     </>
   );

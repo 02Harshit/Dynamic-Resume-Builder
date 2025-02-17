@@ -58,6 +58,11 @@
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 2px;
 }
+
+.skillsList {
+    line-height: 20px;
+}
+
 .rightContainer {
     width:520px;
     min-height: 973px;

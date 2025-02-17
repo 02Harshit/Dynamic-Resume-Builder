@@ -10,8 +10,10 @@ import AboutUs from './components/aboutUs';
 import DeveloperPage from './components/developerPage';
 import AuthPage from './components/Authorization/AuthPage';
 import Dashboard from './components/Dashboard/DashboardPage';
-
-
+import Template1 from './components/Templates/template1';
+import Template2 from './components/Templates/template2';
+import ChooseTemplate from './components/ChooseTemplate';
+import ResumeForm from './components/ResumeForm';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,22 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />
+  },
+  {
+    path: "/template1",
+    element: <Template1 />
+  },
+  {
+    path: "/template2",
+    element: <Template2 />
+  },
+  {
+    path: "/chooseTemplate",
+    element: <ChooseTemplate />
+  },
+  {
+    path: "/resumeForm",
+    element: <ResumeForm />
   }
 ]);
 
