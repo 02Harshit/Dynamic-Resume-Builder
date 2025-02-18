@@ -16,12 +16,14 @@
 //     email: "",
 //     linkedin: "",
 //     address: "",
-//     professionalProfile: "",
 //     education: [],
 //     skills: "",
+//     professionalProfile: "",
 //     professionalExperience: [],
 //     projects: []
 //   });
+
+//   const [education, setEducation] = useState([]);
 
 //   const handleChange = (e) => {
 //     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,6 +31,20 @@
 
 //   const handleArrayChange = (e, key) => {
 //     setFormData({ ...formData, [key]: e.target.value.split(",") });
+//     };
+
+//   const handleEducationChange = (index, e) => {
+//     const updatedEducation = [...education];
+//     updatedEducation[index][e.target.name] = e.target.value;
+//     setEducation(updatedEducation);
+//   };
+
+//   const addEducation = () => {
+//     setEducation([...education, { qualification: "", course: "", institute: "", year: "" }]);
+//   };
+
+//   const saveEducation = () => {
+//     setFormData({ ...formData, education });
 //   };
 
 //   return (
@@ -43,8 +59,44 @@
 //         <input type="text" name="address" placeholder="Address" onChange={handleChange} />
 //         <textarea name="professionalProfile" placeholder="Professional Profile" onChange={handleChange}></textarea>
 //         <input type="text" name="skills" placeholder="Skills (comma separated)" onChange={(e) => handleArrayChange(e, "skills")} />
-//       </div>
 
+//         <h3>Education</h3>
+//         {education.map((edu, index) => (
+//           <div key={index} className={styles.educationEntry}>
+//             <input
+//               type="text"
+//               name="qualification"
+//               placeholder="Qualification"
+//               value={edu.qualification}
+//               onChange={(e) => handleEducationChange(index, e)}
+//             />
+//             <input
+//               type="text"
+//               name="course"
+//               placeholder="Course"
+//               value={edu.course}
+//               onChange={(e) => handleEducationChange(index, e)}
+//             />
+//             <input
+//               type="text"
+//               name="institute"
+//               placeholder="Institute"
+//               value={edu.institute}
+//               onChange={(e) => handleEducationChange(index, e)}
+//             />
+//             <input
+//               type="text"
+//               name="year"
+//               placeholder="Year"
+//               value={edu.year}
+//               onChange={(e) => handleEducationChange(index, e)}
+//             />
+//           </div>
+//         ))}
+//         <button onClick={addEducation}>Add Education</button>
+//         <button onClick={saveEducation}>Save Education</button>
+//       </div>
+      
 //       <div className={styles.previewSection}>
 //         <h2>Resume Preview</h2>
 //         {selectedTemplate === "template1" ? <Template1 formData={formData} /> : <Template2 formData={formData} />}
@@ -81,6 +133,8 @@ const ResumeForm = () => {
   });
 
   const [education, setEducation] = useState([]);
+  const [experience, setExperience] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -88,20 +142,20 @@ const ResumeForm = () => {
 
   const handleArrayChange = (e, key) => {
     setFormData({ ...formData, [key]: e.target.value.split(",") });
-    };
-
-  const handleEducationChange = (index, e) => {
-    const updatedEducation = [...education];
-    updatedEducation[index][e.target.name] = e.target.value;
-    setEducation(updatedEducation);
   };
 
-  const addEducation = () => {
-    setEducation([...education, { qualification: "", course: "", institute: "", year: "" }]);
+  const handleDynamicChange = (index, e, setter, state) => {
+    const updatedData = [...state];
+    updatedData[index][e.target.name] = e.target.value;
+    setter(updatedData);
   };
 
-  const saveEducation = () => {
-    setFormData({ ...formData, education });
+  const addDynamicField = (setter, state, defaultValues) => {
+    setter([...state, defaultValues]);
+  };
+
+  const saveDynamicField = (key, state) => {
+    setFormData({ ...formData, [key]: state });
   };
 
   return (
@@ -119,39 +173,38 @@ const ResumeForm = () => {
 
         <h3>Education</h3>
         {education.map((edu, index) => (
-          <div key={index} className={styles.educationEntry}>
-            <input
-              type="text"
-              name="qualification"
-              placeholder="Qualification"
-              value={edu.qualification}
-              onChange={(e) => handleEducationChange(index, e)}
-            />
-            <input
-              type="text"
-              name="course"
-              placeholder="Course"
-              value={edu.course}
-              onChange={(e) => handleEducationChange(index, e)}
-            />
-            <input
-              type="text"
-              name="institute"
-              placeholder="Institute"
-              value={edu.institute}
-              onChange={(e) => handleEducationChange(index, e)}
-            />
-            <input
-              type="text"
-              name="year"
-              placeholder="Year"
-              value={edu.year}
-              onChange={(e) => handleEducationChange(index, e)}
-            />
+          <div key={index} className={styles.entry}>
+            <input type="text" name="qualification" placeholder="Qualification" value={edu.qualification} onChange={(e) => handleDynamicChange(index, e, setEducation, education)} />
+            <input type="text" name="course" placeholder="Course" value={edu.course} onChange={(e) => handleDynamicChange(index, e, setEducation, education)} />
+            <input type="text" name="institute" placeholder="Institute" value={edu.institute} onChange={(e) => handleDynamicChange(index, e, setEducation, education)} />
+            <input type="text" name="year" placeholder="Year" value={edu.year} onChange={(e) => handleDynamicChange(index, e, setEducation, education)} />
           </div>
         ))}
-        <button onClick={addEducation}>Add Education</button>
-        <button onClick={saveEducation}>Save Education</button>
+        <button onClick={() => addDynamicField(setEducation, education, { qualification: "", course: "", institute: "", year: "" })}>Add Education</button>
+        <button onClick={() => saveDynamicField("education", education)}>Save Education</button>
+
+        <h3>Experience</h3>
+        {experience.map((exp, index) => (
+          <div key={index} className={styles.entry}>
+            <input type="text" name="company" placeholder="Company" value={exp.company} onChange={(e) => handleDynamicChange(index, e, setExperience, experience)} />
+            <input type="text" name="position" placeholder="position" value={exp.position} onChange={(e) => handleDynamicChange(index, e, setExperience, experience)} />
+            <input type="text" name="location" placeholder="location" value={exp.location} onChange={(e) => handleDynamicChange(index, e, setExperience, experience)} />
+            <input type="text" name="date" placeholder="date" value={exp.date} onChange={(e) => handleDynamicChange(index, e, setExperience, experience)}></input>
+            <textarea name="description" placeholder="description" value={exp.description} onChange={(e) => handleDynamicChange(index, e, setExperience, experience)}></textarea>
+          </div>
+        ))}
+        <button onClick={() => addDynamicField(setExperience, experience, { company: "", position: "", location: "",date: "" })}>Add Experience</button>
+        <button onClick={() => saveDynamicField("professionalExperience", experience)}>Save Experience</button>
+
+        <h3>Projects</h3>
+        {projects.map((proj, index) => (
+          <div key={index} className={styles.entry}>
+            <input type="text" name="title" placeholder="Project Title" value={proj.title} onChange={(e) => handleDynamicChange(index, e, setProjects, projects)} />
+            <textarea name="description" placeholder="Project Description" value={proj.description} onChange={(e) => handleDynamicChange(index, e, setProjects, projects)}></textarea>
+          </div>
+        ))}
+        <button onClick={() => addDynamicField(setProjects, projects, { title: "", description: "" })}>Add Project</button>
+        <button onClick={() => saveDynamicField("projects", projects)}>Save Projects</button>
       </div>
       
       <div className={styles.previewSection}>
