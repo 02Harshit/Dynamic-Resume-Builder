@@ -75,7 +75,7 @@
                                         <h2 className={styles.expPosition}>{exp.position}</h2>
                                         <p className={styles.expCompany}>{exp.company} - {exp.location}</p>
                                         <p className={styles.expDate}>{exp.date}</p>
-                                        <p >{exp.description}</p>
+                                        <p className={styles.expDescription}>{exp.description}</p>
                                         
                                     </div>
                                 ))
@@ -89,15 +89,10 @@
                             {formData.projects.length > 0 ? (
                                 formData.projects.map((project, index) => (
                                     <div key={index} className={styles.projectSection}>
-                                        <h2 className={styles.projectTitle}>{project.name}</h2>
+                                        <h2 className={styles.projectTitle}>{project.title}</h2>
                                         <p className={styles.projectDescription}>{project.description}</p>
-                                        <p className={styles.projectTechnologies}><strong>Technologies Used:</strong> {project.technologies.join(", ")}</p>
+                                        <p className={styles.projectTechnologies}><strong>Technologies Used:</strong> {project.technologies}</p>
                                         
-                                        <ul className={styles.projectContributions}>
-                                            {project.contributions.map((contribution, idx) => (
-                                                <li key={idx}>{contribution}</li>
-                                            ))}
-                                        </ul>
                                     </div>
                                 ))
                             ) : (

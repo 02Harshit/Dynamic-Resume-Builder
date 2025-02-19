@@ -107,14 +107,9 @@
     color: #777;
 }
 
-.expList {
-    margin-top: 10px;
-    padding-left: 20px;
-}
-
-.expList li {
+.expDescription {
     font-size: 14px;
-    line-height: 1.5;
+    
 }
 
 .projectSection {
