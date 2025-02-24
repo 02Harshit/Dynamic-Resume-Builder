@@ -1,33 +1,34 @@
 import styles from "./template2.module.css";
 
-const Template2 = ({ userData }) => {
+const Template2 = ({ formData }) => {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.resume_container}>
         {/* Top Section */}
         <header className={styles.header}>
-          <h1>{userData.name}</h1>
-          <h2 className={styles.designation}>{userData.designation}</h2>
+          <h1>{formData.name}</h1>
+          <h2 className={styles.designation}>{formData.position}</h2>
           <p className={styles.contactInfo}>
-            {userData.phone} | {userData.email} |{" "}
+            {formData.phone} | {formData.email} |{" "}
             <a
-              href={userData.linkedin}
+              href={formData.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
               LinkedIn
-            </a>{" "}
-            |{" "}
-            <a href={userData.github} target="_blank" rel="noopener noreferrer">
+            </a> {" "}|{" "}
+            <a href={formData.github} target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
+            {" "}|{" "}
+            {formData.address}
           </p>
         </header>
 
         {/* Summary Section */}
         <section className={styles.section}>
-          <h3>Summary</h3>
-          <p>{userData.summary}</p>
+          <h3>Professional Profile</h3>
+          <p>{formData.professionalProfile}</p>
         </section>
 
         <hr className={styles.horizontalLine} />
@@ -35,15 +36,15 @@ const Template2 = ({ userData }) => {
         {/* Education Section */}
         <section className={styles.section}>
           <h3>Education</h3>
-          {userData.education.map((edu, index) => (
+          {formData.education.map((edu, index) => (
             <div key={index} className={styles.educationEntry}>
               <div>
-                <strong>{edu.degree}</strong>
-                <p>{edu.institution}</p>
+                <strong>{edu.qualification}</strong>
+                <p>{edu.institute}</p>
               </div>
               <div className={styles.educationDetails}>
                 <p>{edu.year}</p>
-                <p>{edu.score}</p>
+                {/* <p>{edu.score}</p> */}
               </div>
             </div>
           ))}
@@ -54,28 +55,27 @@ const Template2 = ({ userData }) => {
         {/* Skills Section */}
         <section className={styles.section}>
           <h3>Skills</h3>
-          {userData.skills.map((skill, index) => (
-            <div key={index} className={styles.skillCategory}>
-              <strong>{skill.category}</strong>
-              <ul>
-                {skill.items.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
+          {formData.skills && formData.skills.length > 0 ? (
+              <ul className={styles.skillsList}>
+              {formData.skills.map((skill, index) => (
+                <li key={index} className={styles.skillItem}>{skill}</li>
+              ))}
               </ul>
-            </div>
-          ))}
+          ) : (
+                <p>No skills added.</p>
+              )}
         </section>
 
         <hr className={styles.horizontalLine} />
 
         {/* Experience Section */}
-        {userData.experience.length > 0 && (
+        {formData.professionalExperience.length > 0 && (
           <section className={styles.section}>
             <h3>Professional Experience</h3>
             <ul>
-              {userData.experience.map((exp, index) => (
+              {formData.professionalExperience.map((exp, index) => (
                 <li key={index}>
-                  <strong>{exp.title}</strong> - {exp.company} ({exp.duration})
+                  <strong>{exp.position}</strong> - {exp.company} ({exp.date})
                   <p>{exp.description}</p>
                 </li>
               ))}
@@ -89,9 +89,9 @@ const Template2 = ({ userData }) => {
         <section className={styles.section}>
           <h3>Projects</h3>
           <ul>
-            {userData.projects.map((project, index) => (
+            {formData.projects.map((project, index) => (
               <li key={index}>
-                <strong>{project.name}</strong>
+                <strong>{project.title}</strong>
                 <p>{project.description}</p>
               </li>
             ))}
@@ -101,29 +101,29 @@ const Template2 = ({ userData }) => {
         <hr className={styles.horizontalLine} />
 
         {/* POR Section */}
-        <section className={styles.section}>
+        {/* <section className={styles.section}>
           <h3>Position of Responsibility</h3>
           <ul>
-            {userData.por.map((position, index) => (
+            {formData.por.map((position, index) => (
               <li key={index}>
                 <strong>{position.title}</strong>
                 <p>{position.description}</p>
               </li>
             ))}
           </ul>
-        </section>
+        </section> */}
 
-        <hr className={styles.horizontalLine} />
+        {/* <hr className={styles.horizontalLine} /> */}
 
         {/* Certificates Section */}
-        <section className={styles.section}>
+        {/* <section className={styles.section}>
           <h3>Certificates & Honors</h3>
           <ul>
-            {userData.certificates.map((cert, index) => (
+            {formData.certificates.map((cert, index) => (
               <li key={index}>{cert}</li>
             ))}
           </ul>
-        </section>
+        </section> */}
       </div>
     </div>
   );
