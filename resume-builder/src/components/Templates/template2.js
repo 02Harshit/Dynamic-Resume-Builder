@@ -11,13 +11,13 @@ const Template2 = ({ formData }) => {
           <p className={styles.contactInfo}>
             {formData.phone} | {formData.email} |{" "}
             <a
-              href={formData.linkedin}
+              href={"https://www.linkedin.com/in/"+formData.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
               LinkedIn
             </a> {" "}|{" "}
-            <a href={formData.github} target="_blank" rel="noopener noreferrer">
+            <a href={"https://www.github.com/"+formData.Github} target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
             {" "}|{" "}
@@ -54,21 +54,23 @@ const Template2 = ({ formData }) => {
 
         {/* Skills Section */}
         <section className={styles.section}>
-          <h3>Skills</h3>
+          <h3 className={styles.heading}>Skills</h3>
+
           {formData.skills && formData.skills.length > 0 ? (
-              <ul className={styles.skillsList}>
+            <ul className={styles.skillCategory}>
               {formData.skills.map((skill, index) => (
-                <li key={index} className={styles.skillItem}>{skill}</li>
-              ))}
-              </ul>
-          ) : (
-                <p>No skills added.</p>
+                <li key={index}>{skill}</li>
+                ))}
+                </ul>
+                ) : (
+                  <p>No skills added.</p>
               )}
         </section>
 
         <hr className={styles.horizontalLine} />
 
         {/* Experience Section */}
+        <h3>Professional Experience</h3>
         {formData.professionalExperience.length > 0 && (
           <section className={styles.section}>
             <h3>Professional Experience</h3>
