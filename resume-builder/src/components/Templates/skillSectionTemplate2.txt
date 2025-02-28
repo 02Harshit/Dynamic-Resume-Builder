@@ -1,0 +1,196 @@
+{/* Skills Section */}
+<section className={styles.section}>
+  <h3 className={styles.heading}>Skills</h3>
+
+  {formData.skills && Object.keys(formData.skills).length > 0 ? (
+    <ul className={styles.skillCategory}>
+      {Object.entries(formData.skills).map(([category, skills], index) => (
+        <li key={index}>
+          <strong>{category}:</strong> {skills.join(", ")}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>No skills added.</p>
+  )}
+</section>
+
+---------------------------------------------------------------------------------
+
+{/* Skills Section */}
+<section className={styles.section}>
+  <h3 className={styles.heading}>Skills</h3>
+
+  {formData.skills && Object.keys(formData.skills).length > 0 ? (
+    <ul>
+      {Object.entries(formData.skills).map(([category, skills], index) => (
+        <li key={index}>
+          <strong>{category}:</strong> {skills.join(", ")}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>No skills added.</p>
+  )}
+</section>
+
+-------------------------------------------------------------------------------
+{/* SKILLS SECTION */}
+<input
+  type="text"
+  name="skills"
+  placeholder="Enter category: skills (comma separated)"
+  onChange={(e) => handleSkillInput(e)}
+/>
+
+-------------------------------------------------------------------------------
+
+const handleSkillInput = (e) => {
+  const inputValue = e.target.value.trim();
+  if (!inputValue.includes(":")) return; // Ensure category exists
+
+  const [category, skills] = inputValue.split(":").map((item) => item.trim());
+
+  if (!category || !skills) return;
+
+  setFormData((prevData) => ({
+    ...prevData,
+    skills: {
+      ...prevData.skills,
+      [category]: skills.split(",").map((skill) => skill.trim()),
+    },
+  }));
+};
+
+-------------------------------------------------------------------------------
+
+
+<section className={styles.section}>
+  <h3 className={styles.heading}>Skills</h3>
+
+  {formData.skills && Object.keys(formData.skills).length > 0 ? (
+    <ul>
+      {Object.entries(formData.skills).map(([category, skills], index) => (
+        <li key={index}>
+          <strong>{category}:</strong> {skills.join(", ")}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>No skills added.</p>
+  )}
+</section>
+
+-------------------------------------------------------------------------------
+
+
+{/* SKILLS SECTION */}
+<section className={styles.section}>
+  <h3 className={styles.heading}>Skills</h3>
+
+  {/* Input for category */}
+  <input
+    type="text"
+    placeholder="Enter category (e.g., Soft Skills)"
+    value={category}
+    onChange={(e) => setCategory(e.target.value)}
+  />
+
+  {/* Input for skills */}
+  <input
+    type="text"
+    placeholder="Enter skills (comma separated)"
+    value={skills}
+    onChange={(e) => setSkills(e.target.value)}
+  />
+
+  {/* Button to add skills */}
+  <button onClick={handleAddSkills}>Add Skills</button>
+
+  {/* Display Skills */}
+  {formData.skills && Object.keys(formData.skills).length > 0 ? (
+    <ul>
+      {Object.entries(formData.skills).map(([category, skills], index) => (
+        <li key={index}>
+          <strong>{category}:</strong> {skills.join(", ")}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>No skills added.</p>
+  )}
+</section>
+
+-------------------------------------------------------------------------------
+
+const [category, setCategory] = useState("");
+const [skills, setSkills] = useState("");
+const [formData, setFormData] = useState({ skills: {} });
+
+const handleAddSkills = () => {
+  if (!category || !skills) return; // Prevent empty inputs
+
+  setFormData((prevData) => ({
+    ...prevData,
+    skills: {
+      ...prevData.skills,
+      [category]: (prevData.skills[category] || []).concat(
+        skills.split(",").map((s) => s.trim())
+      ),
+    },
+  }));
+
+  setCategory(""); // Clear input
+  setSkills(""); // Clear input
+};
+
+-------------------------------------------------------------------------------
+
+{/* Input for Skill Category */}
+<input
+  type="text"
+  placeholder="Enter category (e.g., Soft Skills)"
+  value={category}
+  onChange={(e) => setCategory(e.target.value)}
+/>
+
+
+-------------------------------------------------------------------------------
+
+
+{/* Input for Skills */}
+<input
+  type="text"
+  placeholder="Enter skills (comma separated)"
+  value={skills}
+  onChange={(e) => setSkills(e.target.value)}
+/>
+
+{/* Button to Add Skills */}
+<button onClick={handleAddSkills}>Add Skills</button>
+
+
+const [category, setCategory] = useState("");
+const [skills, setSkills] = useState("");
+const [formData, setFormData] = useState({ skills: {} });
+
+const handleAddSkills = () => {
+  if (!category || !skills) return; // Prevent empty input
+
+  setFormData((prevData) => ({
+    ...prevData,
+    skills: {
+      ...prevData.skills,
+      [category]: (prevData.skills[category] || []).concat(
+        skills.split(",").map((s) => s.trim())
+      ),
+    },
+  }));
+
+  setCategory(""); // Clear input
+  setSkills(""); // Clear input
+};
+
+
+-------------------------------------------------------------------------------
+
