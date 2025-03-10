@@ -34,7 +34,7 @@ const Template2 = ({ formData }) => {
         <hr className={styles.horizontalLine} />
 
         {/* Education Section */}
-        <section className={styles.section}>
+        {<section className={styles.section}>
           <h3>Education</h3>
           {formData.education.map((edu, index) => (
             <div key={index} className={styles.educationEntry}>
@@ -48,7 +48,7 @@ const Template2 = ({ formData }) => {
               </div>
             </div>
           ))}
-        </section>
+        </section>}
 
         <hr className={styles.horizontalLine} />
 
@@ -117,7 +117,7 @@ const Template2 = ({ formData }) => {
 
         {/* <hr className={styles.horizontalLine} /> */}
 
-        {/* Certificates Section */}
+        {/*Certificates Section*/}
         {/* <section className={styles.section}>
           <h3>Certificates & Honors</h3>
           <ul>
