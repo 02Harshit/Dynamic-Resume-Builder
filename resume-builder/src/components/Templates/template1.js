@@ -15,8 +15,16 @@
                     {/* Header Section */}
                     <div className={styles.topContainer}>
                         <div>
-                            <center><span className={styles.name}>{formData.name}</span></center>
-                            <center><span className={styles.position}>{formData.position}</span></center>
+                            {formData.name ? (
+                                <center><span className={styles.name}>{formData.name}</span></center>
+                            ) : (
+                                <center><span className={styles.name}>Your Name</span></center>
+                            )}
+                            {formData.position ? (
+                                <center><span className={styles.position}>{formData.position}</span></center>
+                            ) : (
+                                <center><span className={styles.position}>position</span></center>
+                            )}
                         </div>
                     </div>
 
@@ -25,10 +33,10 @@
                         {/* Left Container */}
                         <div className={styles.leftContainer}>
                             <div className={styles.personalDetails} >
-                                <p>{formData.phone}<PhoneIcon /></p>
-                                <p>{formData.email}<EMailIcon /></p>
-                                <p>{formData.linkedin}<Linkedin /></p>
-                                <p>{formData.address}<Home/></p>
+                                {formData.phone ? <p>{formData.phone}<PhoneIcon /></p> : <p>9999999999<PhoneIcon /></p>  }
+                                {formData.email ? <p>{formData.email}<EMailIcon /></p> : <p>Example@gmail.com<EMailIcon /></p>}
+                                {formData.linkedin ? <p>{formData.linkedin}<Linkedin /></p> : <p>linkedin_profile<Linkedin /></p>}
+                                {formData.address ? <p>{formData.address}<Home /></p> : <p>City (state)<Home /></p>}
                             </div>
 
                             <div className={styles.educationContainer} >
@@ -64,7 +72,7 @@
                         {/* Right Container */}
                         <div className={styles.rightContainer}>
                             <h1 className={styles.heading}>PROFESSIONAL PROFILE</h1>
-                            <p className={styles.body}>{formData.professionalProfile}</p>
+                            {formData.professionalProfile ? <p className={styles.body}>{formData.professionalProfile}</p> : <p className={styles.body}>No professional profile added.</p> } 
                             <br></br>
                             
                             {/* Professional Experience */}

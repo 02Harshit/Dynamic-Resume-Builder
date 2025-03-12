@@ -13,9 +13,8 @@ import Dashboard from './components/Dashboard/DashboardPage';
 import Template1 from './components/Templates/template1';
 import Template2 from './components/Templates/template2';
 import ChooseTemplate from './components/ChooseTemplate';
-import ResumeForm from './components/ResumeForm';
-import ResumeForm1 from './components/ResumeForm1';
-import ResumeForm2 from './components/ResumeForm2';
+import ResumeForm1 from './components/Forms/ResumeForm1';
+import ResumeForm2 from './components/Forms/ResumeForm2';
 
 const router = createBrowserRouter([
   {
@@ -49,10 +48,6 @@ const router = createBrowserRouter([
   {
     path: "/chooseTemplate",
     element: <ChooseTemplate />
-  },
-  {
-    path: "/resumeForm",
-    element: <ResumeForm />
   },
   {
     path: "/resumeForm1",

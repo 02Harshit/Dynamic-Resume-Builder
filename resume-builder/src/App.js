@@ -8,7 +8,6 @@ import Navbar from "./components/Navbar.js";
 import { useRef } from "react";
 import GoToTop from "./components/goToTop.js";
 import Template1 from "./components/Templates/template1.js";
-import ResumePage from "./components/ResumePage.js";
 import Template2 from "./components/Templates/template2.js";
 
 

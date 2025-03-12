@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Template1 from "./Templates/template1";
+import Template1 from "../Templates/template1";
 import styles from "./ResumeForm.module.css";
 
 const ResumeForm1 = ({ selectedTemplate }) => {
