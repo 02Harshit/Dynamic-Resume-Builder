@@ -4,7 +4,7 @@ const express = require('express'); // Require function will fetch the express m
 const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./Routes/auth');
-
+const protectedRoutes = require('./Routes/protectedRoutes');
 
 //Initialize express app
 const app = express();
@@ -19,12 +19,17 @@ app.get('/', (req,res) => {
 })
 
 //MongoDB connection 
-mongoose.connect('mongodb://127.0.0.1:27017/resume_builder')
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 .then(() => console.log("MongoDB connected!"))
 .catch((error) => console.error("MongoDB connection error : ", error));
 
 //authentication route
 app.use('/api/auth', authRoutes);
+//protected routes
+app.use('/api', protectedRoutes);
 
 //Starting the backend server
 const PORT = 5000;
