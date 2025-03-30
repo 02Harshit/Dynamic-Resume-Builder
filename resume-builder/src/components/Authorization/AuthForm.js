@@ -1,13 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./AuthForm.module.css";
+import axios from "axios";
 
 const AuthForm = () => {
   const location = useLocation();
   const [isSignUp, setIsSignUp] = useState(true);
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
+  const [name,setName] = useState("");
   const navigate=useNavigate();
-  const handleSignInClick = () => {
-    navigate("/dashboard");
+
+  const handleSignInClick = async (e) => {
+    e.preventDefault(); // Prevent form submission
+
+    try{
+      const response = await axios.post("http://localhost:5000/api/auth/login", {email,password})
+      
+      console.log(response.data); // Handle successful login response
+      navigate("/dashboard"); // Redirect to dashboard after successful login
+    } catch (error){
+      console.error("Login error:", error.response?.data || error.message); // Handle error response
+      alert("Invalid Credentials!"); // Show error message to user
+    }
+  }
+
+  const handleSignUpClick = async (e) => {
+    e.preventDefault(); // Prevent form submission
+    
+    try {
+      const response = await axios.post("http://localhost:5000/api/auth/signup", { name, email, password })
+      
+      console.log(response.data); // Handle successful signup response
+      alert("User created successfully! Kindly proceed to Sign In"); // Show success message to user
+      setIsSignUp(true); // Switch to sign-in mode after successful signup
+    } catch(error){
+      console.error("Signup error:", error.response?.data || error.message); // Handle error response
+      alert("User already exists!"); // Show error message to user
+    }
   }
 
   useEffect(() => {
@@ -33,8 +63,8 @@ const AuthForm = () => {
           <div className={styles.headingContainer}>
             <h1>Sign in</h1>
           </div>
-          <input type="email" placeholder="Email" className={styles.inputStyling} />
-          <input type="password" placeholder="Password" className={styles.inputStyling} />
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className={styles.inputStyling} />
+          <input type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} className={styles.inputStyling} />
           <div style={{ textAlign: "center", marginTop: "3vh" }}>
             <button type="submit" className={styles.authButton} onClick={handleSignInClick}>Sign In</button>
           </div>
@@ -48,12 +78,12 @@ const AuthForm = () => {
             <h1>Sign up</h1>
           </div>
           <div className={styles.inputContainer}>
-            <input type="text" placeholder="Name" className={styles.inputStyling} />
-            <input type="email" placeholder="Email" className={styles.inputStyling} />
-            <input type="password" placeholder="Password" className={styles.inputStyling} />
+            <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} className={styles.inputStyling} />
+            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className={styles.inputStyling} />
+            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className={styles.inputStyling} />
           </div>
           <div style={{ textAlign: "center", marginTop: "5vh" }}>
-            <button type="submit" className={styles.authButton}>
+            <button type="submit" className={styles.authButton} onClick ={handleSignUpClick}>
               Sign Up
             </button>
           </div>
