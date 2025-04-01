@@ -1,16 +1,17 @@
-const express = require('express');
-const router = express.Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');  
+const express = require('express');//import
+const router = express.Router();//call the fun and store it in router variable
+const bcrypt = require('bcryptjs');//password hashing 
+const jwt = require('jsonwebtoken');//jwt - id card
 const User = require('../models/User');
 
 //secret key to sign the frontend user :-
 const JWT_SECRET = process.env.JWT_SECRET;
 
-//Sign up route
+//Sign up route , async - timing issue can occur
 router.post('/signup', async (req,res) => {
     const {name,email,password} = req.body;
 
+    //try k ander hum esa code likhte jisme error aa sakta
     try {
         let user = await User.findOne({email});
         if (user) return res.status(400).json({message : "User already exists"});
