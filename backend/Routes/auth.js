@@ -13,16 +13,16 @@ router.post('/signup', async (req,res) => {
 
     //try k ander hum esa code likhte jisme error aa sakta
     try {
-        let user = await User.findOne({email});
+        let user = await User.findOne({email}); //find one will return the first user with the email provided in the request body
         if (user) return res.status(400).json({message : "User already exists"});
 
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(password, 10); //hashing the password with 10 rounds of salting
         user = new User({name, email, password: hashedPassword});
         await user.save();
 
         res.status(201).json({message: "User created successfully"});
     } catch (err) {
-        res.status(500).json({error: err.message})
+        res.status(500).json({error: err.message})//error message will be sent to the client
     }
 });
 
@@ -32,9 +32,10 @@ router.post('/login', async (req,res) => {
 
     try {
         const user = await User.findOne({email});
-        if(!user) return res.status(400).json({message : "Invalid Credentials!"});
+        if(!user) return res.status(400).json({message : "User not found!"});
 
-        const isMatch = await bcrypt.compare(password , user.password);
+        const isMatch = await bcrypt.compare(password , user.password); //compare the password with the hashed password in the database
+        //isMatch will be true if the password is correct and false if it is not
         if (!isMatch) return res.status(400).json({message : "Invalid Credentials!"});
 
         const token = jwt.sign({id :user._id }, JWT_SECRET , {expiresIn: '1h' });
