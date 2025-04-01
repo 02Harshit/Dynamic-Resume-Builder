@@ -1,0 +1,4 @@
+//notes - .env
+//environmental file - .env 
+//JWT_SECRET - encrypt the password and decrypt when needed 
+//main file - index.js
