@@ -8,7 +8,11 @@
 //   const navigate = useNavigate();
 
 //   const handleTemplateSelect = (template) => {
-//     navigate(`/resumeForm?template=${template}`);
+//     if (template === "template1") {
+//       navigate("/resumeForm1");
+//     } else if (template === "template2") {
+//       navigate("/resumeForm2");
+//     }
 //   };
 
 //   return (
@@ -46,11 +50,10 @@ const ChooseTemplate = () => {
   const navigate = useNavigate();
 
   const handleTemplateSelect = (template) => {
-    if (template === "template1") {
-      navigate("/resumeForm1");
-    } else if (template === "template2") {
-      navigate("/resumeForm2");
-    }
+    localStorage.setItem("selectedTemplate", template); // Store selected template
+    navigate(template === "template1" ? "/resumeForm1" : "/resumeForm2", {
+      state: { selectedTemplate: template }, // Passing as state (optional)
+    });
   };
 
   return (

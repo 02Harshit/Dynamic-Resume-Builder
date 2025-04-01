@@ -1,44 +1,4 @@
-/* .container {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .heading {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .templates {
-    display: flex;
-    gap: 10em;
-  }
-  
-  .templateCard {
-    background-color: #1c1c1c;
-    width:20em;
-    height:40vh;
-    border: 2px solid #ccc;
-    border-radius: 15px;
-    padding: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
 
-  }
-  
-  .templateCard:hover {
-    transform: scale(1.05);
-  }
-  
-  .templateImage {
-    width: 200px;
-    height: auto;
-    border-radius: 5px;
-  }
-  
-  .templateName {
-    color:white;
-    margin-top: 1em;    
-  } */
 
   .container {
     text-align: center;
