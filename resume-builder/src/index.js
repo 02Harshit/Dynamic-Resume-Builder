@@ -16,6 +16,7 @@ import ChooseTemplate from "./components/ChooseTemplate";
 import ResumeForm1 from "./components/Forms/ResumeForm1";
 import ResumeForm2 from "./components/Forms/ResumeForm2";
 import ProtectedRoute from "./ProtectedRoute"; // Import ProtectedRoute
+import DownloadResume from "./components/DownloadResume"; // Import DownloadResume
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "/resumeForm2",
         element: <ResumeForm2 />,
+      },
+      {
+        path: "/download", // New download route
+        element: <DownloadResume />,
       },
     ],
   },
