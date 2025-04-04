@@ -43,8 +43,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./ChooseTemplate.module.css";
-import template1Img from "../assets/Resume_image.jpeg";
+import template1Img from "../assets/template1.png";
 import template2Img from "../assets/Resume_image.jpeg";
+
 
 const ChooseTemplate = () => {
   const navigate = useNavigate();

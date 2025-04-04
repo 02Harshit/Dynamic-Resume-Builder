@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Template1 from "../Templates/template1";
 import styles from "./ResumeForm.module.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ResumeForm1 = ({ selectedTemplate }) => {
+    const navigate  = useNavigate();
     const [formData, setFormData] = useState({
         name: "",
         position: "",
@@ -73,7 +75,7 @@ const ResumeForm1 = ({ selectedTemplate }) => {
             );
     
             if (response.data.success) {
-                window.location.href = `/download/${response.data.resumeId}`;
+                navigate(`/download`);
             } else {
                 alert("Failed to save resume");
             }
