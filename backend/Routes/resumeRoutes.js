@@ -24,74 +24,41 @@ router.post("/save", async (req, res) => {
   }
 });
 
-// router.get("/:userId", async (req, res) => {
+// router.get("/my-resume", authMiddleware, async (req, res) => {
 //     try {
-//         const { userId } = req.params;
+      
+//         const userId = req.user.id;
+//         console.log("Fetching resume for user ID from token:", userId);
+
 //         const resume = await Resume.findOne({ userId });
 
 //         if (!resume) {
-//             return res.status(404).json({ message: "Resume not found" });
+//             return res.status(404).json({ message: "Resume not found for this user." });
 //         }
 
-//         res.json(resume);
+//         res.status(200).json(resume.resumeData); // Or send resume if needed
 //     } catch (error) {
-//         res.status(500).json({ message: "Server error" });
+//         console.error("Error fetching resume:", error);
+//         res.status(500).json({ message: "Server error while fetching resume." });
 //     }
 // });
 
-
-// Get Resume by User ID
-// router.get("/:userId", async (req, res) => {
-//   try {
-//       const { userId } = req.params;
-
-//       // // Check if userId is a valid ObjectId
-//       // if (!mongoose.Types.ObjectId.isValid(userId)) {
-//       //     return res.status(400).json({ message: "Invalid userId format" });
-//       // }
-
-//       // // Find the resume by userId
-//       // const resume = await Resume.find({userId});
-
-
-//       if (!mongoose.Types.ObjectId.isValid(userId)) {
-//         return res.status(400).json({ message: "Invalid userId format" });
-//       }
-//       console.log("Searching resume for:", userId);
-//       const resume = await Resume.findOne({ userId: new mongoose.Types.ObjectId(userId) });
-
-//       if (!resume || resume.length === 0) {
-//         return res.status(404).json({ message: "No resumes found for this user" });
-//       }
-
-//       res.json(resume);
-
-//   } catch (error) {
-//       console.error("Error fetching resume:", error);
-//       res.status(500).json({ message: "Server error" });
-//   }
-// });
-
-// Import authMiddleware at the top if not already imported
-
-
 router.get("/my-resume", authMiddleware, async (req, res) => {
-    try {
-      
-        const userId = req.user.id;
-        console.log("Fetching resume for user ID from token:", userId);
+  try {
+      const userId = req.user.id;
+      console.log("Fetching latest resume for user ID:", userId);
 
-        const resume = await Resume.findOne({ userId });
+      const resume = await Resume.findOne({ userId }).sort({ createdAt: -1 }); // Fetch latest
 
-        if (!resume) {
-            return res.status(404).json({ message: "Resume not found for this user." });
-        }
+      if (!resume) {
+          return res.status(404).json({ message: "No resume found for this user." });
+      }
 
-        res.status(200).json(resume.resumeData); // Or send resume if needed
-    } catch (error) {
-        console.error("Error fetching resume:", error);
-        res.status(500).json({ message: "Server error while fetching resume." });
-    }
+      res.status(200).json(resume.resumeData);
+  } catch (error) {
+      console.error("Error fetching resume:", error);
+      res.status(500).json({ message: "Server error while fetching resume." });
+  }
 });
 
 

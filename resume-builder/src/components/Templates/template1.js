@@ -1,5 +1,7 @@
     import styles from "./template1.module.css";
     import { FaPhone, FaEnvelope, FaExternalLinkAlt, FaLinkedin, FaHome } from "react-icons/fa";
+    import { forwardRef } from "react";
+
 
     const PhoneIcon = () => <FaPhone style={{ marginLeft: "10px", color: "orange", fontSize: "15px" }} />;
     const EMailIcon = () => <FaEnvelope style={{ marginLeft: "10px", color: "orange", fontSize: "15px" }} />;
@@ -8,9 +10,9 @@
     const Home = () => <FaHome style={{ marginLeft: "10px", color: "orange", fontSize: "15px" }} />;
 
 
-    const Template1 = ({ formData }) => {
+    const Template1 = forwardRef(({ formData }, ref) => {
         return (
-            <div className={styles.mainContainer}>
+            <div ref = {ref || null} className={styles.mainContainer}>
                 <div className={styles.resume_container}>
                     {/* Header Section */}
                     <div className={styles.topContainer}>
@@ -111,6 +113,6 @@
                 </div>
             </div>
         );
-    };
+    });
 
     export default Template1;
