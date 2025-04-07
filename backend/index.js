@@ -7,7 +7,6 @@ const authRoutes = require('./Routes/auth');//these are routes - rasta dikhate h
 const protectedRoutes = require('./Routes/protectedRoutes');
 const resumeRoutes = require("./Routes/resumeRoutes");
 
-
 //Initialize express app
 const app = express();
 

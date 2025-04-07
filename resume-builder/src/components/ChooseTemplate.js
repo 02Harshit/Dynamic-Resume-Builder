@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./ChooseTemplate.module.css";
 import template1Img from "../assets/template1.png";
 import template2Img from "../assets/Resume_image.jpeg";
+import Footer from "./footer.js";
 
 
 const ChooseTemplate = () => {
@@ -34,6 +35,7 @@ const ChooseTemplate = () => {
           <p className={styles.templateName}>Template 2</p>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
