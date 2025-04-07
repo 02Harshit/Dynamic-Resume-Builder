@@ -23,7 +23,7 @@ const AuthForm = () => {
   const handleSignInClick = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+      const response = await axios.post("https://resume-backend-br40.onrender.com/api/auth/login", { email, password });
 
       const { token, user } = response.data; //Extracting token and user from the response
       console.log("Login Successfull:", response.data);
@@ -53,7 +53,7 @@ const AuthForm = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/signup", { name, email, password });
+      const response = await axios.post("https://resume-backend-br40.onrender.com/api/auth/signup", { name, email, password });
       console.log(response.data);
       alert("User created successfully! Kindly proceed to Sign In");
       setIsSignUp(true);

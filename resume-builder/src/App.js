@@ -34,10 +34,6 @@ function App() {
       <div ref={developerRef}><DeveloperPage /></div>
       <Footer />
       <GoToTop />
-      {/* <Template1 /> */}
-      {/* <Template2Render /> */}
-      {/* <ResumePage/> */}
-      {/* <LoginPage/> */}
     </>
   );
 }

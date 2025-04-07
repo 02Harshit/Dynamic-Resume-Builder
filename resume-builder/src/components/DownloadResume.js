@@ -14,7 +14,7 @@ const DownloadResume = () => {
         const fetchResume = async () => {
             try {
                 const token = localStorage.getItem('authToken');
-                const response = await axios.get(`http://localhost:5000/api/resumes/my-resume`, {
+                const response = await axios.get(`https://resume-backend-br40.onrender.com/api/resumes/my-resume`, {
                     headers: {
                         Authorization: token,
                     }

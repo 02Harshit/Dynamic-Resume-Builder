@@ -1,0 +1,10 @@
+# Ignore environment files
+backend/.env
+
+# Node dependencies
+node_modules/
+backend/node_modules/
+resume-builder/node_modules/
+
+# Logs
+*.log

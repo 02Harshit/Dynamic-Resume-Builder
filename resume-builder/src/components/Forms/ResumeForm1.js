@@ -64,7 +64,7 @@ const ResumeForm1 = ({ selectedTemplate }) => {
             const resumeData = formData; // Use form data
     
             const response = await axios.post(
-                "http://localhost:5000/api/resumes/save",
+                "https://resume-backend-br40.onrender.com/api/resumes/save",
                 { userId, resumeData }, 
                 {
                     headers: {
