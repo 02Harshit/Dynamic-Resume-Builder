@@ -35,7 +35,7 @@ const ChooseTemplate = () => {
           <p className={styles.templateName}>Template 2</p>
         </div>
       </div>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };

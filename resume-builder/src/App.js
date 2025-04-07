@@ -9,7 +9,8 @@ import { useRef } from "react";
 import GoToTop from "./components/goToTop.js";
 import Template1 from "./components/Templates/template1.js";
 import Template2 from "./components/Templates/template2.js";
-
+import ChooseTemplate from "./components/ChooseTemplate.js";
+import DashboardPage from "./components/Dashboard/DashboardPage.js";
 
 function App() {
   const aboutRef = useRef(null);
