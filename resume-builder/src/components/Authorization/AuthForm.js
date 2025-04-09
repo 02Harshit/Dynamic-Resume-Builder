@@ -34,7 +34,7 @@
 //       localStorage.setItem("user", JSON.stringify(user)); //Storing the user in local storage
 //       axios.defaults.headers.common["Authorization"] = token; //Setting the default header for axios to include the token
 //       navigate("/dashboard");
-      
+
 //     } catch (error) {
 //       console.error("Login error:", error.response?.data || error.message);
 //       alert("Invalid Credentials!");
@@ -79,19 +79,19 @@
 //   };
 
 //   return (
-//     <div className={`${styles["auth-container"]} ${isSignUp ? "" : styles["sign-up-mode"]}`}> 
+//     <div className={`${styles["auth-container"]} ${isSignUp ? "" : styles["sign-up-mode"]}`}>
 //       {/* Sign In Form */}
 //       <div className={`${styles["form-container"]} ${styles["sign-in-container"]}`}>
 //         <form>
 //           <div className={styles.headingContainer}><h1>Sign in</h1></div>
 //           <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className={styles.inputStyling} />
 //           <div className={styles.passwordContainer}>
-//             <input 
-//               type={showPassword ? "text" : "password"} 
-//               placeholder="Password" 
-//               value={password} 
-//               onChange={(e) => setPassword(e.target.value)} 
-//               className={styles.inputStyling} 
+//             <input
+//               type={showPassword ? "text" : "password"}
+//               placeholder="Password"
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//               className={styles.inputStyling}
 //             />
 //             <button type="button" className={styles.eyeButton} onClick={() => setShowPassword(!showPassword)}>
 //               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -111,24 +111,24 @@
 //             <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value) } className={styles.inputStyling} required />
 //             <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className={styles.inputStyling} required/>
 //             <div className={styles.passwordContainer}>
-//               <input 
-//                 type={showPassword ? "text" : "password"} 
-//                 placeholder="Password" 
-//                 value={password} 
-//                 onChange={(e) => setPassword(e.target.value)} 
-//                 className={styles.inputStyling} 
+//               <input
+//                 type={showPassword ? "text" : "password"}
+//                 placeholder="Password"
+//                 value={password}
+//                 onChange={(e) => setPassword(e.target.value)}
+//                 className={styles.inputStyling}
 //                 required
 //               />
 //               <button type="button" className={styles.eyeButton} onClick={() => setShowPassword(!showPassword)}>
 //                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
 //               </button>
 //             </div>
-//             <input 
-//               type="password" 
-//               placeholder="Confirm Password" 
-//               value={confirmPassword} 
-//               onChange={(e) => setConfirmPassword(e.target.value)} 
-//               className={styles.inputStyling} 
+//             <input
+//               type="password"
+//               placeholder="Confirm Password"
+//               value={confirmPassword}
+//               onChange={(e) => setConfirmPassword(e.target.value)}
+//               className={styles.inputStyling}
 //               required
 //             />
 //             {error && <p className={styles.errorMessage}>{error}</p>}
@@ -186,10 +186,13 @@ const AuthForm = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.post("https://resume-backend-br40.onrender.com/api/auth/login", { email, password });
+      const response = await axios.post(
+        "https://resume-backend-br40.onrender.com/api/auth/login",
+        { email, password }
+      );
 
       const { token, user } = response.data;
-      console.log("Login Successfull:", response.data);
+      console.log("Login Successful:", response.data);
 
       localStorage.setItem("authToken", token);
       localStorage.setItem("user", JSON.stringify(user));
@@ -210,7 +213,9 @@ const AuthForm = () => {
     setIsLoading(true);
 
     if (!validatePassword(password)) {
-      setError("Password must be at least 6 characters long, include an uppercase letter, a number, and a special character.");
+      setError(
+        "Password must be at least 6 characters long, include an uppercase letter, a number, and a special character."
+      );
       setIsLoading(false);
       return;
     }
@@ -222,7 +227,10 @@ const AuthForm = () => {
     }
 
     try {
-      const response = await axios.post("https://resume-backend-br40.onrender.com/api/auth/signup", { name, email, password });
+      const response = await axios.post(
+        "https://resume-backend-br40.onrender.com/api/auth/signup",
+        { name, email, password }
+      );
       console.log(response.data);
       alert("User created successfully! Kindly proceed to Sign In");
       setIsSignUp(true);
@@ -250,17 +258,34 @@ const AuthForm = () => {
       {isLoading && (
         <div className={styles.loaderOverlay}>
           <div className={styles.fancyLoader}>
-            <div></div><div></div><div></div><div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </div>
       )}
 
-      <div className={`${styles["auth-container"]} ${isSignUp ? "" : styles["sign-up-mode"]}`}>
+      <div
+        className={`${styles["auth-container"]} ${
+          isSignUp ? "" : styles["sign-up-mode"]
+        }`}
+      >
         {/* Sign In Form */}
-        <div className={`${styles["form-container"]} ${styles["sign-in-container"]}`}>
+        <div
+          className={`${styles["form-container"]} ${styles["sign-in-container"]}`}
+        >
           <form>
-            <div className={styles.headingContainer}><h1>Sign in</h1></div>
-            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className={styles.inputStyling} />
+            <div className={styles.headingContainer}>
+              <h1>Sign in</h1>
+            </div>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={styles.inputStyling}
+            />
             <div className={styles.passwordContainer}>
               <input
                 type={showPassword ? "text" : "password"}
@@ -269,12 +294,21 @@ const AuthForm = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 className={styles.inputStyling}
               />
-              <button type="button" className={styles.eyeButton} onClick={() => setShowPassword(!showPassword)}>
+              <button
+                type="button"
+                className={styles.eyeButton}
+                onClick={() => setShowPassword(!showPassword)}
+              >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
             <div style={{ textAlign: "center", marginTop: "3vh" }}>
-              <button type="submit" className={styles.authButton} onClick={handleSignInClick} disabled={isLoading}>
+              <button
+                type="submit"
+                className={styles.authButton}
+                onClick={handleSignInClick}
+                disabled={isLoading}
+              >
                 {isLoading ? "Signing In..." : "Sign In"}
               </button>
             </div>
@@ -282,12 +316,30 @@ const AuthForm = () => {
         </div>
 
         {/* Sign Up Form */}
-        <div className={`${styles["form-container"]} ${styles["sign-up-container"]}`}>
+        <div
+          className={`${styles["form-container"]} ${styles["sign-up-container"]}`}
+        >
           <form>
-            <div className={styles.headingContainer}><h1>Sign up</h1></div>
+            <div className={styles.headingContainer}>
+              <h1>Sign up</h1>
+            </div>
             <div className={styles.inputContainer}>
-              <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} className={styles.inputStyling} required />
-              <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className={styles.inputStyling} required />
+              <input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className={styles.inputStyling}
+                required
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className={styles.inputStyling}
+                required
+              />
               <div className={styles.passwordContainer}>
                 <input
                   type={showPassword ? "text" : "password"}
@@ -297,7 +349,11 @@ const AuthForm = () => {
                   className={styles.inputStyling}
                   required
                 />
-                <button type="button" className={styles.eyeButton} onClick={() => setShowPassword(!showPassword)}>
+                <button
+                  type="button"
+                  className={styles.eyeButton}
+                  onClick={() => setShowPassword(!showPassword)}
+                >
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
               </div>
@@ -312,7 +368,12 @@ const AuthForm = () => {
               {error && <p className={styles.errorMessage}>{error}</p>}
             </div>
             <div style={{ textAlign: "center", marginTop: "5vh" }}>
-              <button type="submit" className={styles.authButton} onClick={handleSignUpClick} disabled={isLoading}>
+              <button
+                type="submit"
+                className={styles.authButton}
+                onClick={handleSignUpClick}
+                disabled={isLoading}
+              >
                 {isLoading ? "Signing Up..." : "Sign Up"}
               </button>
             </div>
