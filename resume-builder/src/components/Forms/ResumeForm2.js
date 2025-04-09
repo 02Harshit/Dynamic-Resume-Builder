@@ -15,10 +15,11 @@ const ResumeForm2 = ({ selectedTemplate }) => {
         skills: [],
         professionalProfile: "",
         professionalExperience: [],
-        projects: []
+        projects: [],
+        cert: []
     });
 
-    const { education, skills, projects } = formData; // ✅ Destructure arrays
+    const { education, skills, projects, cert } = formData; // ✅ Destructure arrays
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -57,7 +58,6 @@ const ResumeForm2 = ({ selectedTemplate }) => {
                 {education.map((edu, index) => (
                     <div key={index} className={styles.entry}>
                         <input type="text" name="qualification" placeholder="Qualification" value={edu.qualification} onChange={(e) => handleDynamicChange(index, e, "education")} />
-                        <input type="text" name="course" placeholder="Course" value={edu.course} onChange={(e) => handleDynamicChange(index, e, "education")} />
                         <input type="text" name="institute" placeholder="Institute" value={edu.institute} onChange={(e) => handleDynamicChange(index, e, "education")} />
                         <input type="text" name="year" placeholder="Year" value={edu.year} onChange={(e) => handleDynamicChange(index, e, "education")} />
                         <input type="text" name="score" placeholder="Score (optional)" value={edu.score} onChange={(e) => handleDynamicChange(index, e, "education")} />
@@ -88,6 +88,23 @@ const ResumeForm2 = ({ selectedTemplate }) => {
                     <button className={styles.btn} onClick={() => addDynamicField("skills", "")}>Add Skill</button>
                 </div>
 
+                {/* SIMILAR for PROFESSIONAL EXPERIENCE*/}
+                <h3>Experience</h3>
+                {formData.professionalExperience.map((exp, index) => (
+                    <div key={index} className={styles.entry}>
+                        <input type="text" name="company" placeholder="Company" value={exp.company} onChange={(e) => handleDynamicChange(index, e, "professionalExperience")} />
+                        <input type="text" name="position" placeholder="Position" value={exp.position} onChange={(e) => handleDynamicChange(index, e, "professionalExperience")} />
+                        <input type="text" name="date" placeholder="Date" value={exp.date} onChange={(e) => handleDynamicChange(index, e, "professionalExperience")} />
+                        <textarea name="description" placeholder="Description" value={exp.description} onChange={(e) => handleDynamicChange(index, e, "professionalExperience")}></textarea>
+                        <div className={styles.btnContainer}>
+                            <button className={styles.dltbtn} onClick={() => removeDynamicField(index, "professionalExperience")}>Remove</button>
+                        </div>
+                    </div>
+                ))}
+                <div className = {styles.btnContainer}>
+                <button className={styles.btn} onClick={() => addDynamicField("professionalExperience", { company: "", position: "", date: "", description: "" })}>Add Experience</button>
+                </div>
+
                 {/* SIMILAR for PROJECTS */}
                 <h3>Projects</h3>
                 {projects.map((proj, index) => (
@@ -102,8 +119,25 @@ const ResumeForm2 = ({ selectedTemplate }) => {
                 <div className={styles.btnContainer}>
                     <button className={styles.btn} onClick={() => addDynamicField("projects", { title: "", description: "" })}>Add Project</button>
                 </div>
+
+                {/* SIMILAR for CERTIFICATES */}
+                <h3>Certificates</h3>
+                {cert.map((cert, index) => (
+                    <div key={index} className={styles.entry}>
+                        <input type="text" name="title" placeholder="Cetificate Title" value={cert.title} onChange={(e) => handleDynamicChange(index, e, "cert")} />
+                        <input type="text" name="description" placeholder="Description or Company" value={cert.description} onChange={(e) => handleDynamicChange(index, e, "cert")} />
+                    
+                        <div className={styles.btnContainer}>
+                            <button className={styles.dltbtn} onClick={() => removeDynamicField(index, "cert")} >Remove</button>
+                        </div>
+                    </div>
+                ))}
+                <div className={styles.btnContainer}>
+                    <button className={styles.btn} onClick={() => addDynamicField("cert", { title: "", description: "" })}>Add Certificate</button>
+                </div>
             </div>
 
+            
             <div className={styles.previewSection}>
                 <h2>Resume Preview</h2>
                 <Template2 formData={formData} />

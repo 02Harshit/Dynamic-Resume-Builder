@@ -108,9 +108,6 @@ const Template2 = ({ formData }) => {
 
         <hr className={styles.horizontalLine} />
 
-        
-
-
         {/* POR Section */}
         {/* <section className={styles.section}>
           <h3>Position of Responsibility</h3>
@@ -127,14 +124,14 @@ const Template2 = ({ formData }) => {
         {/* <hr className={styles.horizontalLine} /> */}
 
         {/*Certificates Section*/}
-        {/* <section className={styles.section}>
+        <section className={styles.section}>
           <h3>Certificates & Honors</h3>
           <ul>
-            {formData.certificates.map((cert, index) => (
-              <li key={index}>{cert}</li>
+            {formData.cert.map((cert, index) => (
+              <li key={index}><strong>{cert.title}</strong> : {cert.description} </li>
             ))}
           </ul>
-        </section> */}
+        </section>
       </div>
     </div>
   );

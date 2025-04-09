@@ -11,6 +11,7 @@ import Template1 from "./components/Templates/template1.js";
 import Template2 from "./components/Templates/template2.js";
 import ChooseTemplate from "./components/ChooseTemplate.js";
 import DashboardPage from "./components/Dashboard/DashboardPage.js";
+import ResumeForm2 from "./components/Forms/ResumeForm2.js";
 
 function App() {
   const aboutRef = useRef(null);
@@ -35,6 +36,7 @@ function App() {
       <div ref={developerRef}><DeveloperPage /></div>
       <Footer />
       <GoToTop />
+      
     </>
   );
 }
