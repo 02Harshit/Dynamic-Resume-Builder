@@ -7,10 +7,12 @@ const API_BASE_URL = "https://resume-backend-br40.onrender.com/api/resumes";
 export const saveResume = async (formData) => {
     try {
         const user = JSON.parse(localStorage.getItem("user"));
-        const token = localStorage.getItem("token");
-
-        if (!user || !token) {
-            throw new Error("User not authenticated");
+        const userId = user ? user.id : null; // Extract user ID
+        console.log("Extracted userId:", userId); // Debugging check
+        
+        if (!userId) {
+            alert("User ID not found. Please log in again.");
+            return;
         }
 
         const response = await axios.post(
