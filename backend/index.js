@@ -12,9 +12,25 @@ const app = express();
 
 //Middleware -  performs different tasks
 app.use(express.json());//json - javascript obj notation - easy to read , notation - way to represent every req comes as an object
+
+const allowedOrigins = [
+    "http://localhost:3000",
+    "https://dynamic-resume-builder-nu-two.vercel.app",
+];
+
 app.use(cors({
-    origin: "https://dynamic-resume-builder-nu-two.vercel.app"
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: true
 }));
+// app.use(cors({
+//     origin: "https://dynamic-resume-builder-nu-two.vercel.app"
+// }));
 //Sample route to test the backend (req,res) - parameters
 app.get('/', (req,res) => {
     res.send("Hello from the backend");
