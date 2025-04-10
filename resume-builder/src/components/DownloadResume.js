@@ -5,7 +5,7 @@ import Template1 from "./Templates/template1"; // or Template2, based on your fl
 import Test from "./test"; // Import your test component
 import html2canvas from "html2canvas"; // Import html2canvas for capturing the component
 import jsPDF from "jspdf"; // Import jsPDF for generating PDF
-
+import styles from "./DownloadResume.module.css"; // Import your DownloadResume component
 const DownloadResume = () => {
     const [resumeData, setResumeData] = useState(null);
     const resumeRef = useRef(null);
@@ -39,16 +39,24 @@ const DownloadResume = () => {
         const element  = resumeRef.current;
         if (!element) return;
 
-        const canvas = await html2canvas(element); 
+        const canvas = await html2canvas(element, { 
+            scale: 3,  // Increase scale to get higher resolution images
+            logging: false  // Turn off logging if you don't need debug info
+        });
+
         const data = canvas.toDataURL("image/png"); // Convert to image data URL
 
         const pdf = new jsPDF({
             orientation: "portrait",
-            unit: "px",
+            unit: "mm",
             format: 'a4',
+            compress: true,
         });
 
-        pdf.addImage(data, "PNG", 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+
+        pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);  // Ensure the full A4 page is filled
         pdf.save("resume.pdf"); // Save the PDF with a name
 
     }
@@ -59,7 +67,7 @@ const DownloadResume = () => {
 
             
                 {resumeData ? (
-                    <div ref={resumeRef} style={{ border: "1px solid #ccc", padding: "20px", width: "100%",minHeight: "100px", margin: "auto" }}>
+                    <div ref={resumeRef} className={styles.a4_container} >
                         <Template1 formData={resumeData} />  
                     </div>    
                     ) : (

@@ -1,0 +1,43 @@
+.a4_container {
+    width: 210mm;
+    height: 297mm;
+    padding: 5mm;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .a4_container > * {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    }
+
+
+  @media screen {
+    .a4_container {
+      transform: scale(1);
+      transform-origin: top center;
+    }
+  }
+  
+  @media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .a4_container {
+        margin: 10mm;  /* Add margin for cleaner print */
+        padding: 10mm;  /* Add padding */
+        box-shadow: none;
+    }
+}
+

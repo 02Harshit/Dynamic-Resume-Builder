@@ -3,11 +3,12 @@
     import { forwardRef } from "react";
 
 
-    const PhoneIcon = () => <FaPhone style={{ marginLeft: "10px", color: "orange", fontSize: "15px" }} />;
-    const EMailIcon = () => <FaEnvelope style={{ marginLeft: "10px", color: "orange", fontSize: "15px" }} />;
-    const LinkIcon = () => <FaExternalLinkAlt style={{ marginLeft: "5px", fontSize: "12px", color: "blue" }} />;
-    const Linkedin = () => <FaLinkedin style={{ marginLeft: "10px", color: "orange", fontSize: "15px" }} />;
-    const Home = () => <FaHome style={{ marginLeft: "10px", color: "orange", fontSize: "15px" }} />;
+    const PhoneIcon = () => <FaPhone className={`${styles.phoneIcon} ${styles.icon}`} />;
+    const EMailIcon = () => <FaEnvelope className={`${styles.emailIcon} ${styles.icon}`} />;
+    const LinkIcon = () => <FaExternalLinkAlt className={`${styles.linkIcon} ${styles.icon}`} />;
+    const Linkedin = () => <FaLinkedin className={`${styles.linkedinIcon} ${styles.icon}`} />;
+    const Home = () => <FaHome className={`${styles.homeIcon} ${styles.icon}`} />;
+
 
 
     const Template1 = forwardRef(({ formData }, ref) => {
@@ -57,7 +58,7 @@
                             )}
                             </div>
                             <br></br>
-                            <div className={styles.skillsConatainer}>
+                            <div className={styles.skillsContainer}>
                                 <h1 className={styles.heading}>Skills</h1><br></br>
                                 {formData.skills && formData.skills.length > 0 ? (
                                 <ul className={styles.skillsList}>
