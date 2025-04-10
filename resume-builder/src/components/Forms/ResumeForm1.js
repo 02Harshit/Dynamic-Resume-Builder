@@ -140,7 +140,7 @@ const ResumeForm1 = ({ selectedTemplate }) => {
                 <button className={styles.btn} onClick={() => addDynamicField("projects", { title: "", description: "", technologies: "" })}>Add Project</button>
                 </div>
 
-                <button onClick={handleSaveResume} className={styles.save-resume-btn}>
+                <button onClick={handleSaveResume} className={styles.save_resume_btn}>
                     Save Resume
                 </button>
 
