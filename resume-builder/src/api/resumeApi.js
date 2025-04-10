@@ -6,36 +6,30 @@ const API_BASE_URL = "https://resume-backend-br40.onrender.com/api/resumes";
 // Save resume (used in ResumeForm1 style)
 export const saveResume = async (formData) => {
     try {
-        const user = JSON.parse(localStorage.getItem("user")); // Get user object
-        const userId = user ? user.id : null; // Extract user ID
+        const user = JSON.parse(localStorage.getItem("user"));
+        const token = localStorage.getItem("token");
 
-        console.log("Extracted userId:", userId); // Debugging check
-
-        if (!userId) {
-            alert("User ID not found. Please log in again.");
-            return;
+        if (!user || !token) {
+            throw new Error("User not authenticated");
         }
 
-        const resumeData = formData; // Use form data
-
         const response = await axios.post(
-            "https://resume-backend-br40.onrender.com/api/resumes/save",
-            { userId, resumeData }, 
+            `${API_BASE_URL}/save`,
+            {
+                userId: user.id,
+                resumeData: formData
+            },
             {
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem("token")}`, // If using JWT
+                    Authorization: `Bearer ${token}`,
                 },
             }
         );
 
-        if (response.data.success) {
-            navigate(`/download`);
-        } else {
-            alert("Failed to save resume");
-        }
+        return response.data;
     } catch (error) {
-        console.error("Error saving resume:", error);
-        alert("An error occurred while saving the resume.");
+        console.error("API: Error saving resume", error);
+        throw error;
     }
 };
