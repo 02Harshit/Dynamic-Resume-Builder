@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Template2 from "../Templates/template2";
 import styles from "./ResumeForm.module.css";
+import { saveResume } from "../../api/resumeApi"; // Adjust the import path as necessary
+import { useNavigate } from "react-router-dom";
 
 const ResumeForm2 = ({ selectedTemplate }) => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: "",
         position: "",
@@ -41,6 +44,19 @@ const ResumeForm2 = ({ selectedTemplate }) => {
         setFormData({ ...formData, [key]: updatedArray });
     };
 
+    const handleSaveResume = async () => {
+        try {
+            const res = await saveResume(formData);
+            if (res.success) {
+                navigate("/download");
+            } else {
+                alert("Failed to save resume");
+            }
+        } catch (error) {
+            alert("Error saving resume.");
+        }
+    };
+    
     return (
         <div className={styles.container}>
             <div className={styles.formSection}>
