@@ -1,5 +1,6 @@
 .mainContainer {
-  min-height: 1123px;
+  height: 297mm; /* A4 height */
+  width: 210mm; /* A4 width */
   display: flex;
   align-items: center;
   justify-content: center;

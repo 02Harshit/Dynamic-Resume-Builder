@@ -18,7 +18,7 @@ const LandingPage = () => {
         <div className={styles.heroContent}>
           <BlurText
             text="Build Your Professional Resume Effortlessly"
-            delay={300}
+            delay={200}
             animateBy="words"
             direction="top"
             className="text-2xl mb-8"

@@ -6,10 +6,13 @@ import Test from "./test"; // Import your test component
 import html2canvas from "html2canvas"; // Import html2canvas for capturing the component
 import jsPDF from "jspdf"; // Import jsPDF for generating PDF
 import styles from "./DownloadResume.module.css"; // Import your DownloadResume component
+import Template2 from "./Templates/template2";
+
+
 const DownloadResume = () => {
     const [resumeData, setResumeData] = useState(null);
     const resumeRef = useRef(null);
-
+    const selectedResume = localStorage.getItem("selectedTemplate");
     useEffect(() => {
         const fetchResume = async () => {
             try {
@@ -68,7 +71,13 @@ const DownloadResume = () => {
             
                 {resumeData ? (
                     <div ref={resumeRef} className={styles.a4_container} >
-                        <Template1 formData={resumeData} />  
+                        {selectedResume === "template1" ? (
+                            <Template1 formData={resumeData} />
+                        ) : selectedResume === "template2" ? (
+                            <Template2 formData={resumeData} />
+                        ) : (
+                            <p>No template selected</p>
+                        )}  
                     </div>    
                     ) : (
                         <p>Loading resume...</p>
