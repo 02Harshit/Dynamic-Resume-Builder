@@ -1,6 +1,7 @@
 import DeveloperCard from './DeveloperCard/DeveloperCard.js';
 import profilePage from '../assets/hero_component.jpg';
 import developerImage1 from '../assets/harshit2.jpeg';
+import developerImage2 from '../assets/anjali.JPG';
 import styles from './developerPage.module.css';
 
 const DeveloperPage = () => {
@@ -18,7 +19,7 @@ const DeveloperPage = () => {
                     name={'Harshit Mittal'}
                 />
                 <DeveloperCard 
-                    imageUrl={profilePage} 
+                    imageUrl={developerImage2} 
                     githubLink={'https://github.com/Anjali8827'} 
                     linkedinLink={'https://www.linkedin.com/in/anjali-pawar-449b7b2b2/'} 
                     name={'Anjali Pawar'}
