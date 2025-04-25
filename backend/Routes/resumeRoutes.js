@@ -61,5 +61,23 @@ router.get("/my-resume", authMiddleware, async (req, res) => {
   }
 });
 
+//route for fetching all resume for the myResume page
+router.get("/all", authMiddleware, async (req,res) => {
+  try {
+    const userId = req.user.id;
+    console.log("Fetching all resumes for user ID:", userId);
+
+    const resumes = await Resume.find({ userId }).sort({ updatedAt: -1 }); // Fetch all resumes
+
+    if (!resumes) {
+        return res.status(404).json({ message: "No resumes found for this user." });
+    }
+
+    res.status(200).json(resumes);
+  } catch (error) {
+    console.error("Error fetching resumes:", error);
+    res.status(500).json({ message: "Server error while fetching resumes." });
+  }
+})
 
 module.exports = router;
