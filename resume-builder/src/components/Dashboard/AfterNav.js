@@ -5,10 +5,9 @@ import { CgProfile } from "react-icons/cg";
 const AfterNav = () => {
   return (
     <header className={styles.header}>
-      {/* LHS - Brand Name */}
+    
       <div className={styles.brandName}>Resume Builder</div>
 
-      {/* RHS - Navbar Links */}
       <nav>
         <ul className={styles.navLinks} type="none">
           <li>

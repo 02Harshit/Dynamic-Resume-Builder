@@ -10,17 +10,18 @@ const Template2 = ({ formData }) => {
           {formData.position ? <h2 className={styles.designation}>{formData.position}</h2> : <h2 className={styles.designation}>position</h2> }
           <p className={styles.contactInfo}>
             {formData.phone ? formData.phone : 9999999999 } | {formData.email ? formData.email : "example@gmail.com" } |{" "}
-            <a
+            {/* <a
               href={"https://www.linkedin.com/in/"+formData.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a> {" "}|{" "}
+            > */}
+            Linkedin : {formData.linkedin}
+            {/* </a> {" "}|{" "}
             <a href={"https://www.github.com/"+formData.Github} target="_blank" rel="noopener noreferrer">
               GitHub
-            </a>
+            </a> */}
             {" "}|{" "}
+            GitHub : {formData.Github}{" "}|{" "}
             {formData.address ? formData.address : "City (state)"}
           </p>
         </header>
